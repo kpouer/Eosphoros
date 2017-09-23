@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="81.0" prefWidth="347.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kpouer.eosphoros.ambient.AmbientController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" spacing="5.0">
+         <children>
+            <HBox layoutX="14.0" layoutY="14.0" spacing="5.0">
+               <children>
+                  <Button fx:id="pauseButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="25.0" prefWidth="66.0" text="Pause" AnchorPane.leftAnchor="14.0" />
+                  <Button layoutX="96.0" layoutY="14.0" mnemonicParsing="false" onAction="#off" prefHeight="25.0" prefWidth="66.0" text="Lights off" />
+                  <Button layoutX="175.0" layoutY="14.0" mnemonicParsing="false" onAction="#lightSelection" text="Return to light selection" />
+               </children>
+            </HBox>
+            <HBox spacing="5.0">
+               <children>
+                  <CheckBox fx:id="ignoreGrey" mnemonicParsing="false" onAction="#toggleIgnoreGrey" selected="true" text="ignore grey">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <TextField fx:id="frequency" onAction="#changeFrequency" prefHeight="25.0" prefWidth="103.0" text="100" />
+                  <Label text="Frequency (ms)" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
