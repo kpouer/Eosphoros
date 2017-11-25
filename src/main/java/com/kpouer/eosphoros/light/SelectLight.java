@@ -34,7 +34,8 @@ import java.util.List;
 public class SelectLight
 {
   private static final Logger logger = LoggerFactory.getLogger(SelectLight.class);
-  public ListView<Light> lightList;
+  @FXML
+  private ListView<Light> lightList;
 
   @FXML
   public void initialize()
@@ -61,17 +62,19 @@ public class SelectLight
             .toArray(Light[]::new));
   }
 
+  @FXML
   public void select(ActionEvent actionEvent)
   {
     logger.info("select");
     lightList.getItems().filtered(Light::isSelected).toArray();
     LightDefinition[] selectedItems = lightList.getItems().stream()
         .filter(Light::isSelected)
-        .map(light -> light.getDefinition())
+        .map(Light::getDefinition)
         .toArray(LightDefinition[]::new);
     Eosphoros.eventBus.post(new SelectedAmbiantLight(selectedItems));
   }
 
+  @FXML
   public void close(ActionEvent actionEvent)
   {
     logger.info("close");
