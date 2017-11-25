@@ -50,7 +50,7 @@ public abstract class ColorRectangle
     logger.info("computeRectangle:x={},y={},{}", x, y, rectangle);
   }
 
-  public abstract void computeColor(BufferedImage image);
+  public abstract void computeColor(BufferedImage image) throws InterruptedException;
 
   protected static void computeColor(BufferedImage image, int minX, int maxX, int minY, int maxY, boolean ignoreGrey, ColorResult colorResult)
   {

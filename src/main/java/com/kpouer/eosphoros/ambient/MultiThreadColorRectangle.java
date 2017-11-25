@@ -28,6 +28,7 @@ import java.util.concurrent.CountDownLatch;
 public class MultiThreadColorRectangle extends ColorRectangle
 {
   private static final Logger logger = LoggerFactory.getLogger(MultiThreadColorRectangle.class);
+  public static final int THREAD_COUNT = 8;
 
   public MultiThreadColorRectangle(byte x, byte y)
   {
@@ -35,29 +36,23 @@ public class MultiThreadColorRectangle extends ColorRectangle
   }
 
   @Override
-  public void computeColor(BufferedImage image)
+  public void computeColor(BufferedImage image) throws InterruptedException
   {
     int maxX = Math.min(image.getWidth(), rectangle.width + rectangle.x);
     int maxY = Math.min(image.getHeight(), rectangle.height + rectangle.y);
-    int NB = 8;
-    int width = (maxX - rectangle.x) / NB;
-    CountDownLatch latch = new CountDownLatch(NB-1);
-    Sample[] samples = new Sample[NB];
-    for (int i = 0; i< NB - 1; i++)
-      Eosphoros.executor.execute(samples[i] = new Sample(latch, image,rectangle.x + i * width, width, maxY));
-
-    Eosphoros.executor.execute(samples[NB -1] = new Sample(latch, image, rectangle.x + (NB - 1) * width, maxX - (rectangle.x + (NB - 1) * width), maxY));
-    try
-    {
-      latch.await();
-      for (Sample sample : samples)
-      {
-        colorResult.add(sample.colorResult);
-      }
+    int width = (maxX - rectangle.x) / THREAD_COUNT;
+    CountDownLatch latch = new CountDownLatch(THREAD_COUNT -1);
+    Sample[] samples = new Sample[THREAD_COUNT];
+    for (int i = 0; i< THREAD_COUNT - 1; i++) {
+      samples[i] = new Sample(latch, image, rectangle.x + i * width, width, maxY);
+      Eosphoros.executor.execute(samples[i]);
     }
-    catch (InterruptedException e)
+    samples[THREAD_COUNT -1] = new Sample(latch, image, rectangle.x + (THREAD_COUNT - 1) * width, maxX - (rectangle.x + (THREAD_COUNT - 1) * width), maxY);
+    Eosphoros.executor.execute(samples[THREAD_COUNT -1]);
+    latch.await();
+    for (Sample sample : samples)
     {
-      logger.error("Thread interrupted", e);
+      colorResult.add(sample.colorResult);
     }
   }
 

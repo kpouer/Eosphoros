@@ -50,7 +50,7 @@ public class Rule
     lightState.setOn(Boolean.TRUE);
   }
 
-  public void applyColor(BufferedImage image)
+  public void applyColor(BufferedImage image) throws InterruptedException
   {
     ColorResult colorResult = new ColorResult();
     for (ColorRectangle colorRectangle : colorRectangles)

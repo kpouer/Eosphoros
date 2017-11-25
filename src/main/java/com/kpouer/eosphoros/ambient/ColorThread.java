@@ -38,7 +38,7 @@ import java.util.Collection;
 public class ColorThread extends Thread
 {
   private static final Logger logger = LoggerFactory.getLogger(ColorThread.class);
-  private final Object LOCK = new Object();
+  private final Object lock = new Object();
   private int frequency;
 
   private boolean running = true;
@@ -129,9 +129,9 @@ public class ColorThread extends Thread
       {
         while (pausing)
         {
-          synchronized (LOCK)
+          synchronized (lock)
           {
-            LOCK.wait();
+            lock.wait();
             if (!running)
               throw new InterruptedException("Done");
           }
@@ -159,9 +159,13 @@ public class ColorThread extends Thread
     }
     catch (InterruptedException ignored)
     {
+      Thread.currentThread().interrupt();
     }
-    Eosphoros.eventBus.unregister(this);
-    logger.info("end");
+    finally
+    {
+      Eosphoros.eventBus.unregister(this);
+      logger.info("end");
+    }
   }
 
   public void pause()
@@ -174,9 +178,9 @@ public class ColorThread extends Thread
   {
     logger.info("unpause");
     pausing = false;
-    synchronized (LOCK)
+    synchronized (lock)
     {
-      LOCK.notifyAll();
+      lock.notifyAll();
     }
   }
 
