@@ -16,8 +16,6 @@
 package com.kpouer.eosphoros.ambient;
 
 import com.kpouer.eosphoros.Eosphoros;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.awt.image.BufferedImage;
 import java.util.concurrent.CountDownLatch;
@@ -27,7 +25,6 @@ import java.util.concurrent.CountDownLatch;
  */
 public class MultiThreadColorRectangle extends ColorRectangle
 {
-  private static final Logger logger = LoggerFactory.getLogger(MultiThreadColorRectangle.class);
   public static final int THREAD_COUNT = 8;
 
   public MultiThreadColorRectangle(byte x, byte y)
