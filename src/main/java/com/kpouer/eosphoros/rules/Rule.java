@@ -104,9 +104,9 @@ public class Rule
     PHBridge selectedBridge = PHHueSDK.getInstance().getSelectedBridge();
     if (selectedBridge != null)
     {
-      PHLightState lightState = new PHLightState();
-      lightState.setOn(Boolean.FALSE);
-      lamps.forEach(lamp -> selectedBridge.updateLightState(lamp, lightState, null));
+      PHLightState tmpLightState = new PHLightState();
+      tmpLightState.setOn(Boolean.FALSE);
+      lamps.forEach(lamp -> selectedBridge.updateLightState(lamp, tmpLightState, null));
     }
   }
 }
