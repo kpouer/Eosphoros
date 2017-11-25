@@ -20,6 +20,10 @@ package com.kpouer.eosphoros.ambient;
  */
 public class ColorRectangleFactory
 {
+  private ColorRectangleFactory()
+  {
+  }
+
   public static ColorRectangle getColorRectangle(byte x, byte y)
   {
     if ("false".equals(System.getProperty("multithread")))
