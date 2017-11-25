@@ -29,9 +29,12 @@ import javafx.scene.control.TextField;
  */
 public class AmbientController
 {
-  public TextField frequency;
-  public Button pauseButton;
-  public CheckBox ignoreGrey;
+  @FXML
+  private TextField frequency;
+  @FXML
+  private Button pauseButton;
+  @FXML
+  private CheckBox ignoreGrey;
   private ColorThread colorThread;
   private int currentFrequency;
 
@@ -46,18 +49,21 @@ public class AmbientController
     frequency.focusedProperty().addListener((observable, oldValue, newValue) -> changeFrequency(null));
   }
 
+  @FXML
   public void togglePause(ActionEvent actionEvent)
   {
     colorThread.togglePause();
     pauseButton.setText(colorThread.isPausing() ? "Unpause" : "Pause");
   }
 
+  @FXML
   public void lightSelection(ActionEvent actionEvent)
   {
     colorThread.handleStopMessage(null);
     Eosphoros.instance.chooseLights();
   }
 
+  @FXML
   public void off(ActionEvent actionEvent)
   {
     colorThread.pause();
@@ -65,6 +71,7 @@ public class AmbientController
     colorThread.lightsOff();
   }
 
+  @FXML
   public void changeFrequency(ActionEvent actionEvent)
   {
     int freq = Integer.parseInt(frequency.getText());
@@ -77,6 +84,7 @@ public class AmbientController
     }
   }
 
+  @FXML
   public void toggleIgnoreGrey(ActionEvent actionEvent)
   {
     colorThread.setIgnoreGrey(ignoreGrey.isSelected());
