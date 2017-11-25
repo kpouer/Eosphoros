@@ -34,8 +34,10 @@ public class LightCell extends ListCell<Light>
   public LightCell()
   {
     hbox = new HBox();
-    hbox.getChildren().addAll(label = new Label());
-    hbox.getChildren().addAll(positionCombo = new ComboBox<>(FXCollections.observableArrayList(Position.values())));
+    label = new Label();
+    hbox.getChildren().addAll(label);
+    positionCombo = new ComboBox<>(FXCollections.observableArrayList(Position.values()));
+    hbox.getChildren().addAll(positionCombo);
     positionCombo.setOnAction(event -> setPosition(positionCombo.getValue()));
   }
 
