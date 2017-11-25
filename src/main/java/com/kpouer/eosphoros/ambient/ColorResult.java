@@ -75,10 +75,6 @@ public class ColorResult
     return blue;
   }
 
-  public int getPixels() {
-    return pixels;
-  }
-
   public float getBrightness() {
     return brightness;
   }
