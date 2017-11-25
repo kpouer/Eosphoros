@@ -15,22 +15,9 @@
  */
 package com.kpouer.eosphoros.message;
 
-import com.kpouer.eosphoros.light.LightDefinition;
-
 /**
  * @author Matthieu Casanova
  */
-public class SelectedAmbiantLight
+public class StartAmbient implements Message
 {
-  private final LightDefinition[] selectedItems;
-
-  public SelectedAmbiantLight(LightDefinition[] selectedItems)
-  {
-    this.selectedItems = selectedItems;
-  }
-
-  public LightDefinition[] getSelectedItems()
-  {
-    return selectedItems;
-  }
 }

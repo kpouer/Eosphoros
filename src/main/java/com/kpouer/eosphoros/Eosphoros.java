@@ -109,7 +109,7 @@ public class Eosphoros extends Application
   }
 
   @Subscribe
-  public void handleStartAmbiant(StartAmbiant message)
+  public void handleStartAmbiant(StartAmbient message)
   {
     logger.info("handleStartAmbiant");
     Platform.runLater(() ->

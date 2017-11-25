@@ -71,13 +71,13 @@ public class SelectLight
         .filter(Light::isSelected)
         .map(Light::getDefinition)
         .toArray(LightDefinition[]::new);
-    Eosphoros.eventBus.post(new SelectedAmbiantLight(selectedItems));
+    Eosphoros.eventBus.post(new SelectedAmbientLight(selectedItems));
   }
 
   @FXML
   public void close(ActionEvent actionEvent)
   {
     logger.info("close");
-    Eosphoros.eventBus.post(new StartAmbiant());
+    Eosphoros.eventBus.post(new StartAmbient());
   }
 }

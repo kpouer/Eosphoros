@@ -66,7 +66,7 @@ class KPHSDKListener implements PHSDKListener
       Eosphoros.instance.chooseLights();
     } else
     {
-      Eosphoros.eventBus.post(new StartAmbiant());
+      Eosphoros.eventBus.post(new StartAmbient());
     }
   }
 

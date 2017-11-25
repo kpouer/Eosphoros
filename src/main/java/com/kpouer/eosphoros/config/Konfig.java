@@ -103,15 +103,15 @@ public class Konfig
   }
 
   @Subscribe
-  public void handleSelectedAmbiantLight(SelectedAmbiantLight selectedAmbiantLight)
+  public void handleSelectedAmbiantLight(SelectedAmbientLight selectedAmbientLight)
   {
-    LightDefinition[] selectedItems = selectedAmbiantLight.getSelectedItems();
+    LightDefinition[] selectedItems = selectedAmbientLight.getSelectedItems();
     String[] lights = Arrays.stream(selectedItems)
         .map(lightDefinition -> lightDefinition.getLightIdentifier() + ':' + lightDefinition.getPosition())
         .toArray(String[]::new);
     config.setProperty(AMBIANT_LIGHTS, lights);
     save();
-    Eosphoros.eventBus.post(new StartAmbiant());
+    Eosphoros.eventBus.post(new StartAmbient());
   }
 
   @Subscribe

@@ -40,6 +40,7 @@ public class Authentication
 
   }
 
+  @FXML
   public void refresh(ActionEvent actionEvent)
   {
     logger.info("refresh");
@@ -48,6 +49,7 @@ public class Authentication
     sm.search(true, true);
   }
 
+  @FXML
   public void select(ActionEvent actionEvent)
   {
     logger.info("select");
@@ -57,6 +59,7 @@ public class Authentication
     Eosphoros.eventBus.post(new SelectedAccessPointMessage(selectedItem));
   }
 
+  @FXML
   public void close(ActionEvent actionEvent)
   {
     logger.info("close");
