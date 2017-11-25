@@ -15,9 +15,6 @@
  */
 package com.kpouer.eosphoros.ambient;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.awt.image.BufferedImage;
 
 /**
@@ -25,8 +22,6 @@ import java.awt.image.BufferedImage;
  */
 public class SingleThreadColorRectangle extends ColorRectangle
 {
-  private static final Logger logger = LoggerFactory.getLogger(SingleThreadColorRectangle.class);
-
   public SingleThreadColorRectangle(byte x, byte y)
   {
     super(x, y);
