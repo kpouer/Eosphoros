@@ -107,7 +107,7 @@ public class Konfig
   {
     LightDefinition[] selectedItems = selectedAmbiantLight.getSelectedItems();
     String[] lights = Arrays.stream(selectedItems)
-        .map(lightDefinition -> lightDefinition.lightIdentifier + ':' + lightDefinition.position)
+        .map(lightDefinition -> lightDefinition.getLightIdentifier() + ':' + lightDefinition.getPosition())
         .toArray(String[]::new);
     config.setProperty(AMBIANT_LIGHTS, lights);
     save();
@@ -137,7 +137,7 @@ public class Konfig
     LightDefinition[] selectedAmbiantLights = getSelectedAmbientLights();
     for (LightDefinition selectedAmbiantLight : selectedAmbiantLights)
     {
-      if (identifier.equals(selectedAmbiantLight.lightIdentifier))
+      if (identifier.equals(selectedAmbiantLight.getLightIdentifier()))
         return selectedAmbiantLight;
     }
     return null;

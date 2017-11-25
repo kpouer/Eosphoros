@@ -20,8 +20,8 @@ package com.kpouer.eosphoros.light;
  */
 public class LightDefinition
 {
-  public String lightIdentifier;
-  public Position position;
+  private final String lightIdentifier;
+  private Position position;
 
   public LightDefinition(String lightIdentifier, Position position)
   {
@@ -32,5 +32,20 @@ public class LightDefinition
   public boolean isSelected()
   {
     return position != Position.Disabled;
+  }
+
+  public String getLightIdentifier()
+  {
+    return lightIdentifier;
+  }
+
+  public Position getPosition()
+  {
+    return position;
+  }
+
+  public void setPosition(Position newPosition)
+  {
+    position = newPosition;
   }
 }

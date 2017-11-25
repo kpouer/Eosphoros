@@ -72,21 +72,21 @@ public class ColorThread extends Thread
     LightDefinition[] selectedAmbientLights = Eosphoros.config.getSelectedAmbientLights();
     for (LightDefinition selectedAmbientLight : selectedAmbientLights)
     {
-      switch (selectedAmbientLight.position)
+      switch (selectedAmbientLight.getPosition())
       {
         case Disabled:
           break;
         case Left:
-          logger.info("Left: {}", selectedAmbientLight.lightIdentifier);
-          ruleLeft.addLamp(selectedAmbientLight.lightIdentifier);
+          logger.info("Left: {}", selectedAmbientLight.getLightIdentifier());
+          ruleLeft.addLamp(selectedAmbientLight.getLightIdentifier());
           break;
         case Right:
-          logger.info("Right: {}", selectedAmbientLight.lightIdentifier);
-          ruleRight.addLamp(selectedAmbientLight.lightIdentifier);
+          logger.info("Right: {}", selectedAmbientLight.getLightIdentifier());
+          ruleRight.addLamp(selectedAmbientLight.getLightIdentifier());
           break;
         case Center:
-          logger.info("All: {}", selectedAmbientLight.lightIdentifier);
-          ruleCenter.addLamp(selectedAmbientLight.lightIdentifier);
+          logger.info("All: {}", selectedAmbientLight.getLightIdentifier());
+          ruleCenter.addLamp(selectedAmbientLight.getLightIdentifier());
           break;
 
       }

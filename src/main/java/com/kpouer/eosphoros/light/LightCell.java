@@ -43,7 +43,7 @@ public class LightCell extends ListCell<Light>
 
   private void setPosition(Position position)
   {
-    definition.position = position;
+    definition.setPosition(position);
   }
 
   @Override
@@ -54,7 +54,7 @@ public class LightCell extends ListCell<Light>
     else
     {
       definition = light.getDefinition();
-      positionCombo.setValue(definition.position);
+      positionCombo.setValue(definition.getPosition());
       label.setText(light.getPhLight().getName() + " (" + light.getPhLight().getIdentifier()+ ')');
       setGraphic(hbox);
     }
