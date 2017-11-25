@@ -66,11 +66,7 @@ public abstract class ColorRectangle
         Color.RGBtoHSB(tmpRed, tmpGreen, tmpBlue, hsbvals);
         if (ignoreGrey && hsbvals[1] > 0.4)
         {
-          colorResult.pixels++;
-          colorResult.red += tmpRed;
-          colorResult.green += tmpGreen;
-          colorResult.blue += tmpBlue;
-          colorResult.brightness += hsbvals[2];
+          colorResult.add(tmpRed, tmpGreen, tmpBlue, hsbvals[2]);
         }
       }
     }

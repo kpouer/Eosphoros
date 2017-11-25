@@ -59,13 +59,8 @@ public class Rule
       colorResult.add(colorRectangle.getColorResult());
     }
 
-    if (colorResult.pixels == 0)
-      colorResult.pixels = 1;
-    colorResult.red /= colorResult.pixels;
-    colorResult.green /= colorResult.pixels;
-    colorResult.blue /= colorResult.pixels;
-    colorResult.brightness /= colorResult.pixels;
-    setColor(colorResult.red, colorResult.green, colorResult.blue, colorResult.brightness);
+    colorResult.compute();
+    setColor(colorResult.getRed(), colorResult.getGreen(), colorResult.getBlue(), colorResult.getBrightness());
   }
 
   private void setColor(int red, int green, int blue, float brightness)

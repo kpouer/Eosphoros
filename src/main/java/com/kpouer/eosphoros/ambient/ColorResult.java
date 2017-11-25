@@ -20,11 +20,11 @@ package com.kpouer.eosphoros.ambient;
  */
 public class ColorResult
 {
-  public int red;
-  public int green;
-  public int blue;
-  public int pixels;
-  public float brightness;
+  private int red;
+  private int green;
+  private int blue;
+  private int pixels;
+  private float brightness;
 
   public void reset()
   {
@@ -42,5 +42,44 @@ public class ColorResult
     blue += colorResult.blue;
     pixels += colorResult.pixels;
     brightness += colorResult.brightness;
+  }
+
+  public void add(int tmpRed, int tmpGreen, int tmpBlue, float tmpBrightness)
+  {
+    pixels++;
+    red += tmpRed;
+    green += tmpGreen;
+    blue += tmpBlue;
+    brightness += tmpBrightness;
+  }
+
+  public void compute()
+  {
+    if (pixels == 0)
+      return;
+    red /= pixels;
+    green /= pixels;
+    blue /= pixels;
+    brightness /= pixels;
+  }
+
+  public int getRed() {
+    return red;
+  }
+
+  public int getGreen() {
+    return green;
+  }
+
+  public int getBlue() {
+    return blue;
+  }
+
+  public int getPixels() {
+    return pixels;
+  }
+
+  public float getBrightness() {
+    return brightness;
   }
 }
