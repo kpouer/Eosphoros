@@ -40,7 +40,8 @@ import java.util.List;
 public class SelectBridge
 {
   private static final Logger logger = LoggerFactory.getLogger(SelectBridge.class);
-  public ListView<PHAccessPoint> bridgeList;
+  @FXML
+  private ListView<PHAccessPoint> bridgeList;
 
   @FXML
   public void initialize()
@@ -71,48 +72,49 @@ public class SelectBridge
       @Override
       public void onCacheUpdated(List<Integer> list, PHBridge phBridge)
       {
-
+        // I don't care
       }
 
       @Override
       public void onBridgeConnected(PHBridge phBridge, String s)
       {
-
+        // I don't care
       }
 
       @Override
       public void onAuthenticationRequired(PHAccessPoint phAccessPoint)
       {
-
+        // I don't care
       }
 
       @Override
       public void onError(int i, String s)
       {
-
+        // I don't care
       }
 
       @Override
       public void onConnectionResumed(PHBridge phBridge)
       {
-
+        // I don't care
       }
 
       @Override
       public void onConnectionLost(PHAccessPoint phAccessPoint)
       {
-
+        // I don't care
       }
 
       @Override
       public void onParsingErrors(List<PHHueParsingError> list)
       {
-
+        // I don't care
       }
     });
     refresh(null);
   }
 
+  @FXML
   public void refresh(ActionEvent actionEvent)
   {
     logger.info("refresh");
@@ -121,6 +123,7 @@ public class SelectBridge
     sm.search(true, true);
   }
 
+  @FXML
   public void select(ActionEvent actionEvent)
   {
     logger.info("select");
@@ -130,6 +133,7 @@ public class SelectBridge
     Eosphoros.eventBus.post(new SelectedAccessPointMessage(selectedItem));
   }
 
+  @FXML
   public void close(ActionEvent actionEvent)
   {
     logger.info("close");
