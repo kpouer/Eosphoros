@@ -1,0 +1,9 @@
+1.0.1
+=====
+
+- Fix a bug preventing the app to compute colors in multithread version
+
+1.0.0
+=====
+
+- Intial release

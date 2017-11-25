@@ -38,6 +38,7 @@ public class MultiThreadColorRectangle extends ColorRectangle
   @Override
   public void computeColor(BufferedImage image) throws InterruptedException
   {
+    colorResult.reset();
     int maxX = Math.min(image.getWidth(), rectangle.width + rectangle.x);
     int maxY = Math.min(image.getHeight(), rectangle.height + rectangle.y);
     int width = (maxX - rectangle.x) / THREAD_COUNT;
