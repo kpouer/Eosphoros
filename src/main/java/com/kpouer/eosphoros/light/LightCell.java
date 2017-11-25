@@ -51,9 +51,9 @@ public class LightCell extends ListCell<Light>
       setGraphic(null);
     else
     {
-      definition = light.definition;
+      definition = light.getDefinition();
       positionCombo.setValue(definition.position);
-      label.setText(light.light.getName() + " (" + light.light.getIdentifier()+ ')');
+      label.setText(light.getPhLight().getName() + " (" + light.getPhLight().getIdentifier()+ ')');
       setGraphic(hbox);
     }
   }

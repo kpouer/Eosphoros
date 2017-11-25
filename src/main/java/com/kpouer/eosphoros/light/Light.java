@@ -23,19 +23,28 @@ import com.philips.lighting.model.PHLight;
  */
 public class Light
 {
-  public PHLight light;
-  public LightDefinition definition;
+  private final PHLight phLight;
+  private final LightDefinition definition;
 
   public Light(PHLight light)
   {
-    this.light = light;
-    definition = Eosphoros.config.getDefinition(light.getIdentifier());
-    if (definition == null)
-      definition = new LightDefinition(light.getIdentifier(), Position.Disabled);
+    phLight = light;
+    LightDefinition lightDefinition = Eosphoros.config.getDefinition(light.getIdentifier());
+    if (lightDefinition == null)
+      lightDefinition = new LightDefinition(light.getIdentifier(), Position.Disabled);
+    definition = lightDefinition;
   }
 
   public boolean isSelected()
   {
     return definition.isSelected();
+  }
+
+  public PHLight getPhLight() {
+    return phLight;
+  }
+
+  public LightDefinition getDefinition() {
+    return definition;
   }
 }

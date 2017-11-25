@@ -67,7 +67,7 @@ public class SelectLight
     lightList.getItems().filtered(Light::isSelected).toArray();
     LightDefinition[] selectedItems = lightList.getItems().stream()
         .filter(Light::isSelected)
-        .map(light -> light.definition)
+        .map(light -> light.getDefinition())
         .toArray(LightDefinition[]::new);
     Eosphoros.eventBus.post(new SelectedAmbiantLight(selectedItems));
   }
