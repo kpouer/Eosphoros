@@ -54,6 +54,7 @@ public abstract class ColorRectangle
 
   protected static void computeColor(BufferedImage image, int minX, int maxX, int minY, int maxY, boolean ignoreGrey, ColorResult colorResult)
   {
+    colorResult.reset();
     float[] hsbvals = new float[3];
     for (int x = minX; x < maxX; x++)
     {
