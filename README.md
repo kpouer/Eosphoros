@@ -1,5 +1,10 @@
 # Eosphoros
 
+## Deprecated
+
+This project is deprecated. It was a nice experiment, the Hue SDK is not maintained anymore and Philips now provide
+similar feature in an official application.
+
 ## Introduction
 
 Eosphoros is a desktop application that change the colors of your Philips Hue lights according to the color of your computer screen.
